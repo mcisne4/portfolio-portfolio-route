@@ -110,4 +110,6 @@ dist
 .vscode-test
 
 # Custom Folders
-.design_files/
+design_files/
+design_files/*
+/design_files/
