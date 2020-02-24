@@ -1,0 +1,10 @@
+$container-max-width: 80rem;
+$container-min-width: 10rem;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: $container-max-width;
+  min-width: $container-min-width;
+  margin: 0 auto;
+}

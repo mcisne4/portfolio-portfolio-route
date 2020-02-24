@@ -1,0 +1,55 @@
+$nav-logo-svg-color: #ff7b00;
+$nav-logo-svg-color: #aaff00;
+$nav-logo-title-color: #e6e202;
+$nav-logo-subtitle-color: #aaff00;
+$nav-background-color: #ffffff11;
+
+.nav {
+  background-color: $nav-background-color;
+  padding: 0 1rem;
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    
+    &-svg {
+      // border: 1px solid red;
+      width: 4.2rem;
+      height: 3rem;
+      fill: $nav-logo-svg-color;
+    }
+    
+    &-description {
+      // border: 1px solid blue;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      height: 3.5rem;
+
+      &-title {
+        color: $nav-logo-title-color;
+        @include fontTitle;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+        padding-left: .5rem;
+      }
+      &-name{
+        color: $nav-logo-subtitle-color;
+        @include fontSubTitle;
+        font-size: 1.2rem;
+        letter-spacing: 2.4px;
+        letter-spacing: 4px;
+        margin-left: -.2rem;
+        display: flex;
+      }
+    }
+  }
+}

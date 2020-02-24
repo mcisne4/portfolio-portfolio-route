@@ -1,14 +1,23 @@
 // --- FONTS ---
 @mixin fontTitle {
   font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Exo 2', sans-serif;
+  font-family: 'Krona One', sans-serif;
   font-weight: 700;
 }
 
 @mixin fontSubTitle {
-  font-family: 'IBM Plex Sans', sans-serif;
-  // font-family: 'IBM Plex Mono', monospace;
-  font-weight: 600;
+  font-family: 'Patrick Hand', cursive;
+  font-family: 'Bubblegum Sans', cursive;
+  font-weight: 400;
 }
+
+// @mixin fontSubTitle {
+//   font-family: 'IBM Plex Sans', sans-serif;
+//   font-family: 'Exo 2', sans-serif;
+//   font-weight: 500;
+//   font-style: italic;
+// }
 
 @mixin fontNormal {
   font-family: 'IBM Plex Mono', monospace;

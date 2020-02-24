@@ -10,7 +10,7 @@ const router = require("express").Router();
 module.exports = function(app_info){
   
   // --- ROOT ROUTE ---
-  router.use("/", require("./some_route")(app_info));
+  router.use("/", require("./home")(app_info));
 
   // --- SOME ROUTE ---
   router.use("/someroute", require("./some_route")(app_info));
