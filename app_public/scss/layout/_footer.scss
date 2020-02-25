@@ -1,0 +1,60 @@
+$footer-links-color-main: #eee;
+$footer-links-color-sub1: #00000055;
+$footer-links-color-sub2: #000000aa;
+
+.footer-spacer {
+  display: flex;
+  flex-grow: 1;
+}
+
+.footer {
+  height: 2rem;
+  background-color: $nav-background-color;
+  padding: 0 1rem;
+  
+  & .container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & a {
+    margin-left: 1rem;
+    margin-top: .1rem;
+    text-decoration: none;
+  }
+
+  &-link {
+    &-github {
+      fill: $footer-links-color-main;
+      width: 1.3rem;
+      height: 1.3rem;
+    }
+    
+    &-gmail {
+      width: 1.7rem;
+      height: 1.2rem;
+      
+      & path {
+        fill: $footer-links-color-main;
+      }
+      & polygon:nth-child(2){
+        fill: $footer-links-color-sub1;
+      }
+      & polygon:nth-child(3){
+        fill: $footer-links-color-sub1;
+      }
+      & polygon:nth-child(4){
+        fill: $footer-links-color-sub2;
+      }
+    }
+    
+    &-linkedin {
+      fill: $footer-links-color-main;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

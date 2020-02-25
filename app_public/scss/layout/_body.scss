@@ -9,3 +9,7 @@ body {
   color: $body_text_color;
   @include fontNormal;
 }
+
+.body {
+  z-index: 0;
+}

@@ -3,31 +3,51 @@ $nav-logo-svg-color: #aaff00;
 $nav-logo-title-color: #e6e202;
 $nav-logo-subtitle-color: #aaff00;
 $nav-background-color: #ffffff11;
+$nav-menu-btn-color: #ddd;
+$nav-menu-btn-hover-color: #fff;
+$nav-link-text: #ddd;
+$nav-link-text-hover: #fff;
+$nav-link-text-desktop: #ccc;
+$nav-link-text-hr: #ffffff33;
+$nav-links-background: #1b2929;
+$nav-links-background-hover: #5e7e7e;
+
 
 .nav {
   background-color: $nav-background-color;
   padding: 0 1rem;
-  .container {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  & .container {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
 
+  &-spacer {
+    // display: flex;
+    min-width: 1rem;
+  }
   &-logo {
     display: flex;
     flex-direction: row;
     align-items: center;
     text-decoration: none;
+    flex-grow: 1;
+    min-width: 15rem;
+    // margin-right: 1rem;
     
     &-svg {
-      // border: 1px solid red;
       width: 4.2rem;
       height: 3rem;
       fill: $nav-logo-svg-color;
     }
     
     &-description {
-      // border: 1px solid blue;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -52,4 +72,106 @@ $nav-background-color: #ffffff11;
       }
     }
   }
+
+  &-menu {
+    &-btn {
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      
+      & rect {
+        stroke: $nav-menu-btn-color;
+        stroke-width: 0.2rem;
+        fill: none;
+      }
+      &:hover rect {
+        stroke: $nav-menu-btn-hover-color;
+      }
+      & line {
+        stroke: $nav-menu-btn-color;
+        stroke-width: .4rem;
+        fill: none;
+      }
+      &:hover line {
+        stroke: $nav-menu-btn-hover-color;
+      }
+    }
+  }
+
+  &-links {
+    display: block;
+    position: absolute;
+    top: 3.5rem;
+    right: -1rem;
+    
+    &.hidden {
+      display: none;
+    }
+
+    &-item {
+      display: block;
+      text-decoration: none;
+      @include fontNormal;
+      color: $nav-link-text;
+      background-color: $nav-links-background;
+      border-top: 1px solid $nav-links-background-hover;
+      padding: .75rem 2rem;
+      text-align: center;
+      
+      &:hover {
+        background-color: $nav-links-background-hover;
+        color: $nav-link-text-hover;
+      }
+
+      & hr {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 50rem){
+  .nav-menu-btn {
+    display: none;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    min-width: 33rem;
+    flex-grow: 1;
+    // margin: 1rem;
+    // width: 50%;
+    // align-items: center;
+
+    &.hidden {
+      display: flex;
+    }
+
+    &-item {
+      background-color: transparent;
+      border: none;
+      padding: 0;
+      // margin-left: 1.5rem;
+      color: $nav-link-text-desktop;
+
+      &:hover {
+        background-color: transparent;
+
+        & hr {
+          background-color: $nav-link-text-hover;
+        }
+      }
+
+      & hr {
+        display: block;
+        margin-top: 0.2rem;
+        height: 3px;
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+
 }

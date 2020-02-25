@@ -1,15 +1,16 @@
-// ==================================
-// === START NAVIGATION ANIMATION ===
-// ==================================
+// ===========================
+// === NAVIGATION TIMELINE ===
+// ===========================
 
 // --- Timeline ---
 const tl_nav_logo = anime.timeline({
   easing: "easeOutQuad"
 });
 
-// ----------------
-// --- LOGO SVG ---
-// ----------------
+
+// ==========================
+// === LOGO SVG ANIMATION ===
+// ==========================
 
 // --- SVG Logo Data ---
 const nav_logo_svg = {
@@ -53,12 +54,15 @@ tl_nav_logo.add({
 });
 
 
-// -----------------
-// --- LOGO NAME ---
-// -----------------
+// ===========================
+// === LOGO NAME ANIMATION ===
+// ===========================
+
+// --- Add Temporary Span Elements ---
 const nav_logo_name = document.querySelector(".nav-logo-description-name");
 nav_logo_name.innerHTML = nav_logo_name.textContent.replace(/\S/g, "<span class='nav-logo-description-name-char'>$&</span>");
 
+// --- Animate Name ---
 tl_nav_logo.add({
   targets: ".nav-logo-description-name-char",
   opacity: [0,0.6],
@@ -79,9 +83,9 @@ tl_nav_logo.add({
 });
 
 
-// ------------------
-// --- LOGO TITLE ---
-// ------------------
+// ============================
+// === LOGO TITLE ANIMATION ===
+// ============================
 tl_nav_logo.add({
   targets: ".nav-logo-description-title",
   opacity: [0, 1],
@@ -94,3 +98,68 @@ tl_nav_logo.add({
   duration: 500,
 });
 
+
+// ===================================
+// === NAVIGATION BUTTON ANIMATION ===
+// ===================================
+tl_nav_logo.add({
+  targets: ".nav-menu-btn",
+  opacity: [0, 1],
+  duration: 500,
+  easing: "easeInSine"
+}, "-=2000");
+
+
+// ==============================
+// === LINKS NAVBAR ANIMATION ===
+// ==============================
+// tl_nav_logo.add({
+//   targets: ".nav-links",
+//   opacity: [0, 1],
+//   duration: 500,
+//   easing: "easeInSine"
+// }, "-=1000");
+
+
+// =======================
+// === OPEN LINKS MENU ===
+// =======================
+const nav_menu_btn = $(".nav-menu-btn");
+const nav_menu_links = $(".nav-links");
+
+nav_menu_btn.on("click", function(event){
+  const classes = nav_menu_links.attr("class");
+  if(classes.includes("hidden")){
+    animateNavMenuOpen();
+    $(document).on("click.nav_menu", function(e){
+      if($(e.target).closest(".nav-links").length === 0 && $(e.target).closest(".nav-menu-btn").length === 0){
+        animateNavMenuClose();
+        $(document).off("click.nav_menu");
+      }
+    });
+  } else {
+    animateNavMenuClose();
+  }
+
+});
+
+
+// ================================
+// === NAV LINKS MENU ANIMATION ===
+// ================================
+
+function animateNavMenuOpen(){
+  nav_menu_links.removeClass("hidden");
+}
+
+function animateNavMenuClose(){
+  nav_menu_links.addClass("hidden");
+}
+
+
+// ========================
+// === ON WINDOW RESIZE ===
+// ========================
+$(window).on("resize", function(){
+  animateNavMenuClose();
+});

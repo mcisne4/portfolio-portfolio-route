@@ -1,5 +1,5 @@
-$container-max-width: 80rem;
-$container-min-width: 10rem;
+$container-max-width: 1280px;
+$container-min-width: 368px;
 
 .container {
   display: flex;
@@ -7,4 +7,19 @@ $container-min-width: 10rem;
   max-width: $container-max-width;
   min-width: $container-min-width;
   margin: 0 auto;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: column;
+  // max-width: $container-max-width;
+  // min-width: $container-min-width;
+  margin: 0 auto;
+  position: fixed;
+  top: 3.5rem;
+  bottom: 0;
+  width: 100%;
+  overflow: auto;
+  // background-color: blue;
+  // 
 }

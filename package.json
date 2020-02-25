@@ -16,5 +16,11 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "app_public/",
+      "design_files/"
+    ]
   }
 }
