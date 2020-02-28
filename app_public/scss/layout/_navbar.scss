@@ -29,7 +29,6 @@ $nav-links-background-hover: #5e7e7e;
   }
 
   &-spacer {
-    // display: flex;
     min-width: 1rem;
   }
   &-logo {
@@ -39,7 +38,6 @@ $nav-links-background-hover: #5e7e7e;
     text-decoration: none;
     flex-grow: 1;
     min-width: 15rem;
-    // margin-right: 1rem;
     
     &-svg {
       width: 4.2rem;
@@ -140,10 +138,8 @@ $nav-links-background-hover: #5e7e7e;
     display: flex;
     justify-content: space-between;
     min-width: 33rem;
+    max-width: 37rem;
     flex-grow: 1;
-    // margin: 1rem;
-    // width: 50%;
-    // align-items: center;
 
     &.hidden {
       display: flex;

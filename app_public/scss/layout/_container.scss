@@ -7,19 +7,21 @@ $container-min-width: 368px;
   max-width: $container-max-width;
   min-width: $container-min-width;
   margin: 0 auto;
+  width: 100%;
 }
 
-.body-container {
+.body {
   display: flex;
   flex-direction: column;
-  // max-width: $container-max-width;
-  // min-width: $container-min-width;
   margin: 0 auto;
   position: fixed;
   top: 3.5rem;
   bottom: 0;
   width: 100%;
   overflow: auto;
-  // background-color: blue;
-  // 
+  &-container {
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0 1rem;
+  }
 }

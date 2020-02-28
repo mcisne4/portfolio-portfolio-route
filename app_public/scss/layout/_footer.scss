@@ -2,11 +2,6 @@ $footer-links-color-main: #eee;
 $footer-links-color-sub1: #00000055;
 $footer-links-color-sub2: #000000aa;
 
-.footer-spacer {
-  display: flex;
-  flex-grow: 1;
-}
-
 .footer {
   height: 2rem;
   background-color: $nav-background-color;
@@ -14,7 +9,6 @@ $footer-links-color-sub2: #000000aa;
   
   & .container {
     height: 100%;
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;

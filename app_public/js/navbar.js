@@ -102,23 +102,45 @@ tl_nav_logo.add({
 // ===================================
 // === NAVIGATION BUTTON ANIMATION ===
 // ===================================
-tl_nav_logo.add({
+anime({
   targets: ".nav-menu-btn",
-  opacity: [0, 1],
-  duration: 500,
+  opacity: [0,1],
+  duration: 1000,
   easing: "easeInSine"
-}, "-=2000");
+});
 
 
 // ==============================
 // === LINKS NAVBAR ANIMATION ===
 // ==============================
-// tl_nav_logo.add({
-//   targets: ".nav-links",
-//   opacity: [0, 1],
-//   duration: 500,
-//   easing: "easeInSine"
-// }, "-=1000");
+anime({
+  targets: ".nav-links",
+  opacity: [0,1],
+  duration: 1000,
+  easing: "easeInSine"
+});
+
+
+// ==============================
+// === ANIMATE BODY-CONTAINER ===
+// ==============================
+anime({
+  targets: ".body-container",
+  opacity: [0,1],
+  duration: 1000,
+  easing: "easeInSine"
+});
+
+
+// ======================
+// === ANIMATE FOOTER ===
+// ======================
+anime({
+  targets: ".footer .container",
+  opacity: [0,1],
+  duration: 1000,
+  easing: "easeInSine"
+});
 
 
 // =======================
