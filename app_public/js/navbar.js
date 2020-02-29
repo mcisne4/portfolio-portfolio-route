@@ -143,45 +143,76 @@ anime({
 });
 
 
+// ================================
+// === NAV LINKS MENU ANIMATION ===
+// ================================
+const nav_menu_btn = $(".nav-menu-btn");
+const nav_menu_links = $(".nav-links");
+const nav_menu_links_item = $(".nav-links-item");
+
+const nav_menu_open = anime({
+  targets: ".nav-links-item",
+  duration: 200,
+  rotateX: [90,0],
+  opacity: [0, 1],
+  easing: "easeInQuad",
+  delay: anime.stagger(100),
+  autoplay: false,
+  begin: function(){
+    nav_menu_links.removeClass("hidden");
+    nav_menu_links.addClass("open");
+  },
+  complete: function(){
+    nav_menu_links_item.removeAttr("style");
+  }
+});
+
+const nav_menu_close = anime({
+  targets: ".nav-links-item",
+  duration: 200,
+  rotateX: [0,90],
+  opacity: [1, 0],
+  easing: "easeInQuad",
+  delay: anime.stagger(100, {direction: "reverse"}),
+  autoplay: false,
+  complete: function(){
+    nav_menu_links.addClass("hidden");
+    nav_menu_links.removeClass("open");
+    nav_menu_links_item.removeAttr("style");
+  }
+});
+
+
 // =======================
 // === OPEN LINKS MENU ===
 // =======================
-const nav_menu_btn = $(".nav-menu-btn");
-const nav_menu_links = $(".nav-links");
-
 nav_menu_btn.on("click", function(event){
   const classes = nav_menu_links.attr("class");
   if(classes.includes("hidden")){
-    animateNavMenuOpen();
+    nav_menu_open.play();
     $(document).on("click.nav_menu", function(e){
       if($(e.target).closest(".nav-links").length === 0 && $(e.target).closest(".nav-menu-btn").length === 0){
-        animateNavMenuClose();
+        nav_menu_close.play();
         $(document).off("click.nav_menu");
       }
     });
   } else {
-    animateNavMenuClose();
+    nav_menu_close.play();
   }
-
 });
-
-
-// ================================
-// === NAV LINKS MENU ANIMATION ===
-// ================================
-
-function animateNavMenuOpen(){
-  nav_menu_links.removeClass("hidden");
-}
-
-function animateNavMenuClose(){
-  nav_menu_links.addClass("hidden");
-}
 
 
 // ========================
 // === ON WINDOW RESIZE ===
 // ========================
+let window_resize_timer;
+
 $(window).on("resize", function(){
-  animateNavMenuClose();
+  $(document).off("click.nav_menu");
+  clearTimeout(window_resize_timer);
+  window_resize_timer = setTimeout(function(){
+    nav_menu_links.addClass("hidden");
+    nav_menu_links.removeClass("open");
+    nav_menu_links_item.removeAttr("style");
+  });
 });
